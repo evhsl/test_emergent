@@ -39,6 +39,10 @@ function App() {
   const analyzeNewsletter = async () => {
     if (!htmlContent.trim()) return;
 
+    console.log('Démarrage de l\'analyse...');
+    console.log('Backend URL:', process.env.REACT_APP_BACKEND_URL);
+    console.log('HTML Content length:', htmlContent.length);
+
     setIsAnalyzing(true);
     try {
       const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/analyze-newsletter`, {
@@ -55,15 +59,18 @@ function App() {
         }),
       });
 
+      console.log('Response status:', response.status);
+
       if (!response.ok) {
         throw new Error('Erreur lors de l\'analyse');
       }
 
       const result = await response.json();
+      console.log('Résultat reçu:', result);
       setAnalysisResult(result);
     } catch (error) {
       console.error('Erreur:', error);
-      alert('Erreur lors de l\'analyse de la newsletter');
+      alert('Erreur lors de l\'analyse de la newsletter: ' + error.message);
     } finally {
       setIsAnalyzing(false);
     }
