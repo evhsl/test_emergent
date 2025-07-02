@@ -5,9 +5,11 @@ import PreviewInbox from './components/PreviewInbox';
 import LinksPanel from './components/LinksPanel';
 import ResultsPanel from './components/ResultsPanel';
 import SettingsPanel from './components/SettingsPanel';
-import { Settings, Moon, Sun } from 'lucide-react';
+import { Settings, Moon, Sun, Languages } from 'lucide-react';
+import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
 
-function App() {
+function AppContent() {
+  const { language, t, toggleLanguage } = useLanguage();
   const [htmlContent, setHtmlContent] = useState('');
   const [analysisResult, setAnalysisResult] = useState(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
