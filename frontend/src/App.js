@@ -184,10 +184,10 @@ function App() {
               {isAnalyzing ? (
                 <div className="flex items-center justify-center">
                   <div className="animate-spin w-5 h-5 border-2 border-white border-t-transparent rounded-full mr-2"></div>
-                  Analyse en cours...
+                  {t('analyzing')}
                 </div>
               ) : (
-                '🔍 Analyser la newsletter'
+                t('analyzeButton')
               )}
             </button>
 
