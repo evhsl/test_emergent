@@ -6,7 +6,28 @@ import LinksPanel from './components/LinksPanel';
 import ResultsPanel from './components/ResultsPanel';
 import SettingsPanel from './components/SettingsPanel';
 import { Settings, Moon, Sun, Languages } from 'lucide-react';
-import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
+
+// Simple translation system
+const translations = {
+  fr: {
+    title: "Newsletter Analyzer",
+    subtitle: "Testez votre newsletter HTML en 30 secondes",
+    analyzeButton: "🔍 Analyser la newsletter",
+    analyzing: "Analyse en cours...",
+    readyToAnalyze: "Prêt à analyser votre newsletter",
+    pasteHtmlLeft: "Collez votre code HTML dans la zone de gauche et cliquez sur \"Analyser\" pour commencer",
+    footerText: "Newsletter Analyzer - Testez vos newsletters sans inscription"
+  },
+  en: {
+    title: "Newsletter Analyzer", 
+    subtitle: "Test your HTML newsletter in 30 seconds",
+    analyzeButton: "🔍 Analyze newsletter",
+    analyzing: "Analyzing...",
+    readyToAnalyze: "Ready to analyze your newsletter",
+    pasteHtmlLeft: "Paste your HTML code in the left area and click \"Analyze\" to start",
+    footerText: "Newsletter Analyzer - Test your newsletters without registration"
+  }
+};
 
 function App() {
   const [htmlContent, setHtmlContent] = useState('');
