@@ -136,12 +136,12 @@ function App() {
                 {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </button>
               <button
-                onClick={() => {/* toggleLanguage() */}}
+                onClick={toggleLanguage}
                 className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
                 title="Change language / Changer la langue"
               >
                 <Languages className="w-5 h-5" />
-                <span className="ml-1 text-sm font-medium">FR/EN</span>
+                <span className="ml-1 text-sm font-medium">{language.toUpperCase()}</span>
               </button>
               <button
                 onClick={() => setShowSettings(!showSettings)}
