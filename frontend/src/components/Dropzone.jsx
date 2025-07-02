@@ -106,7 +106,8 @@ const Dropzone = ({ onHtmlContent, htmlContent }) => {
         <textarea
           value={htmlContent}
           onChange={handleTextareaChange}
-          placeholder="Collez votre code HTML ici..."
+          onPaste={handleRichPaste}
+          placeholder="Collez votre code HTML ici ou du contenu riche avec liens..."
           className="w-full h-40 px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-sunset-500 focus:border-transparent resize-vertical font-mono text-sm bg-gray-50 dark:bg-gray-700 dark:text-white"
         />
         
