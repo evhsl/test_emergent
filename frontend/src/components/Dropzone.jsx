@@ -36,6 +36,33 @@ const Dropzone = ({ onHtmlContent, htmlContent }) => {
     }
   };
 
+  const handleRichPaste = async (e) => {
+    e.preventDefault();
+    
+    try {
+      const clipboardData = e.clipboardData || window.clipboardData;
+      
+      // Try to get HTML content first (rich text with links)
+      const htmlData = clipboardData.getData('text/html');
+      if (htmlData && htmlData.trim()) {
+        console.log('Contenu HTML riche détecté');
+        onHtmlContent(htmlData);
+        return;
+      }
+      
+      // Fallback to plain text
+      const textData = clipboardData.getData('text/plain');
+      if (textData && textData.trim()) {
+        console.log('Contenu texte détecté');
+        onHtmlContent(textData);
+      }
+    } catch (err) {
+      console.error('Erreur lors du collage riche:', err);
+      // Fallback to manual paste
+      handlePaste();
+    }
+  };
+
   return (
     <div className="space-y-4">
       {/* File Drop Zone */}
