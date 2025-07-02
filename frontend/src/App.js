@@ -8,8 +8,7 @@ import SettingsPanel from './components/SettingsPanel';
 import { Settings, Moon, Sun, Languages } from 'lucide-react';
 import { LanguageProvider, useLanguage } from './contexts/LanguageContext';
 
-function AppContent() {
-  const { language, t, toggleLanguage } = useLanguage();
+function App() {
   const [htmlContent, setHtmlContent] = useState('');
   const [analysisResult, setAnalysisResult] = useState(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
