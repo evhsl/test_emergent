@@ -41,6 +41,17 @@ function App() {
     sender: ''
   });
   const [darkMode, setDarkMode] = useState(false);
+  const [language, setLanguage] = useState('fr');
+
+  // Translation function
+  const t = (key) => {
+    return translations[language][key] || key;
+  };
+
+  // Toggle language function
+  const toggleLanguage = () => {
+    setLanguage(language === 'fr' ? 'en' : 'fr');
+  };
 
   // Auto dark mode based on time
   useEffect(() => {
