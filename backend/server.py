@@ -39,6 +39,8 @@ class LinkInfo(BaseModel):
     status: str = "pending"
     favicon: Optional[str] = None
     title: Optional[str] = None
+    preview_image: Optional[str] = None
+    description: Optional[str] = None
 
 class AnalysisResult(BaseModel):
     ai_analysis: Optional[Dict[str, Any]] = None
@@ -86,6 +88,21 @@ async def verify_link_status(session: aiohttp.ClientSession, link: LinkInfo) -> 
                         title_tag = page_soup.find('title')
                         if title_tag:
                             link.title = title_tag.get_text(strip=True)[:100]
+                        # Try Open Graph preview image
+                        og_img = page_soup.find('meta', property='og:image')
+                        if og_img and og_img.get('content'):
+                            link.preview_image = og_img['content']
+                        else:
+                            twitter_img = page_soup.find('meta', attrs={'name': 'twitter:image'})
+                            if twitter_img and twitter_img.get('content'):
+                                link.preview_image = twitter_img['content']
+
+                        # Try meta description / og:description
+                        description_tag = page_soup.find('meta', property='og:description')
+                        if not description_tag:
+                            description_tag = page_soup.find('meta', attrs={'name': 'description'})
+                        if description_tag and description_tag.get('content'):
+                            link.description = description_tag['content'][:200]
             except:
                 pass
                 
