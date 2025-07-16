@@ -121,6 +121,14 @@ const LinksPanel = ({ links }) => {
                     {link.title}
                   </p>
                 )}
+
+                {link.preview_image && (
+                  <img
+                    src={link.preview_image}
+                    alt="Aperçu"
+                    className="mt-2 w-full h-24 object-cover rounded-lg border"
+                  />
+                )}
               </div>
 
               <div className="flex items-center space-x-2 ml-4">

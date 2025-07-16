@@ -95,11 +95,11 @@ const LinkPreview = ({ link, onClose }) => {
               <label className="text-sm font-medium text-gray-700 dark:text-gray-300 mr-3">
                 Favicon
               </label>
-              <img 
-                src={link.favicon} 
-                alt="Favicon" 
+              <img
+                src={link.favicon}
+                alt="Favicon"
                 className="w-6 h-6"
-                onError={(e) => { 
+                onError={(e) => {
                   e.target.style.display = 'none';
                   e.target.nextSibling.style.display = 'inline';
                 }}
@@ -107,6 +107,29 @@ const LinkPreview = ({ link, onClose }) => {
               <span className="text-sm text-gray-500 dark:text-gray-400 hidden">
                 Non disponible
               </span>
+            </div>
+          )}
+
+          {/* Preview Image */}
+          {link.preview_image && (
+            <div>
+              <img
+                src={link.preview_image}
+                alt="Aperçu"
+                className="w-full h-40 object-cover rounded-lg border"
+              />
+            </div>
+          )}
+
+          {/* Description */}
+          {link.description && (
+            <div>
+              <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                Description
+              </label>
+              <p className="mt-1 text-sm text-gray-900 dark:text-white bg-gray-50 dark:bg-gray-700 rounded-lg p-3">
+                {link.description}
+              </p>
             </div>
           )}
 
