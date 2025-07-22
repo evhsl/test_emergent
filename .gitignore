@@ -1,0 +1,22 @@
+# Node.js dependencies
+node_modules/
+
+# Build outputs
+build/
+
+# Documentation build artifacts
+# Node / React built docs
+# For example built static files for GitHub Pages
+# (these are located in docs/ directory)
+docs/
+
+# Python virtual environments
+.venv/
+venv/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Miscellaneous
+.DS_Store
