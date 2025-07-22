@@ -8,4 +8,8 @@ npm install
 npm run deploy
 ```
 
-The `deploy` script builds the project and publishes the static files to the `gh-pages` branch so they can be served via GitHub Pages. The built files are also available in the `docs/` directory for simple "Pages" deployments from the repository root.
+The `deploy` script builds the project, copies the result to `docs/`, and publishes the static files to the `gh-pages` branch. You can then configure **GitHub Pages** to serve either from this branch or directly from the `docs/` folder.
+
+In your repository settings choose **GitHub Pages** source:
+- **Branch**: `gh-pages` (recommended)
+- or **Folder**: `docs/` on `main` if you prefer serving from the repository itself.
