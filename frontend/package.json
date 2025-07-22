@@ -23,6 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "predeploy": "npm run build",
+    "postbuild": "cp -a build/* ../docs/",
     "deploy": "gh-pages -d build -b gh-pages",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
